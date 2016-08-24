@@ -22,8 +22,8 @@ spec:
       - args: []
         command: []
         env: []
-        image: "quay.io/spinnaker/igor:latest"
-        imagePullPolicy: "Always"
+        image: "localhost:5000/igor:latest"
+        imagePullPolicy: "IfNotPresent"
         name: "igor"
         ports:
         - containerPort: 8088
