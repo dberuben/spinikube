@@ -22,8 +22,8 @@ spec:
       - args: []
         command: []
         env: []
-        image: "quay.io/spinnaker/clouddriver:latest"
-        imagePullPolicy: "Always"
+        image: "localhost:5000/clouddriver:latest"
+        imagePullPolicy: "IfNotPresent"
         name: "clouddriver"
         ports:
         - containerPort: 7002

@@ -22,8 +22,8 @@ spec:
       - args: []
         command: []
         env: []
-        image: "quay.io/spinnaker/rosco:latest"
-        imagePullPolicy: "Always"
+        image: "localhost:5000/rosco:latest"
+        imagePullPolicy: "IfNotPresent"
         name: "rosco"
         ports:
         - containerPort: 8087

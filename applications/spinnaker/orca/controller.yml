@@ -22,8 +22,8 @@ spec:
       - args: []
         command: []
         env: []
-        image: "quay.io/spinnaker/orca:latest"
-        imagePullPolicy: "Always"
+        image: "localhost:5000/orca:latest"
+        imagePullPolicy: "IfNotPresent"
         name: "orca"
         ports:
         - containerPort: 8083

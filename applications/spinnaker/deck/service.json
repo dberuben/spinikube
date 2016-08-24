@@ -11,7 +11,7 @@
         "type": "NodePort",
         "ports": [
             {
-                "name": "clouddriver",
+                "name": "deck",
                 "protocol": "TCP",
                 "port": 80,
                 "targetPort": 80
