@@ -20,4 +20,4 @@ spec:
         command:
           - "bash"
           - "-c"
-          - "nohup dockerd-entrypoint.sh --insecure-registry spinnaker-registry:5000 & sleep 5; cd /usr/local/jenkins; rm -rf jobs; git clone https://github.com/kenzanlabs/spinikube.git spinikube; mv spinikube/jobs jobs; java -jar /usr/local/jenkins/jenkins.war"
+          - "nohup dockerd-entrypoint.sh --insecure-registry spinnaker-registry:5000 & sleep 5; cd /usr/local/jenkins; rm -rf jobs; git clone https://github.com/Groupe-Atallah/spinikube.git spinikube; mv spinikube/jobs jobs; java -jar /usr/local/jenkins/jenkins.war"
