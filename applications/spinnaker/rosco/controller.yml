@@ -22,7 +22,7 @@ spec:
       - args: []
         command: []
         env: []
-        image: "localhost:5000/rosco:latest"
+        image: "jamer007/rosco:latest"
         imagePullPolicy: "IfNotPresent"
         name: "rosco"
         ports:

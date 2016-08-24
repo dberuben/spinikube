@@ -22,7 +22,7 @@ spec:
       - args: []
         command: []
         env: []
-        image: "localhost:5000/igor:latest"
+        image: "jamer007/igor:latest"
         imagePullPolicy: "IfNotPresent"
         name: "igor"
         ports:

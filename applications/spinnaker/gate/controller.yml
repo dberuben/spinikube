@@ -22,7 +22,7 @@ spec:
       - args: []
         command: []
         env: []
-        image: "localhost:5000/gate:latest"
+        image: "jamer007/gate:latest"
         imagePullPolicy: "IfNotPresent"
         name: "gate"
         ports:

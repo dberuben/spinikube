@@ -32,7 +32,7 @@ def c(cmd):
 
 o("minikube delete")
 
-o("minikube start --memory 10000 --cpus 4 --disk-size=60g")
+o("minikube start --memory 10000 --cpus 4 --disk-size=120g")
 
 #o("kubectl delete namespace spinnaker")
 #time.sleep(30)
@@ -99,8 +99,8 @@ os.system("kubectl create secret generic minikube-config --from-file=./minikube/
 
 os.system("rm -rf minikube")
 
-#print "seeding spinnaking images"
-o("./podexec jenkins /usr/local/jenkins/jobs/seed.sh")
+print 'seeding spinnaking images at ' + cmdOut("minikube service spinnaker-jenkins --namespace spinnaker --url")
+#o("./podexec jenkins /usr/local/jenkins/jobs/seed.sh")
 
 components = ('front50', 'clouddriver', 'rosco', 'orca', 'igor', 'gate', 'deck')
 for component in components:
@@ -120,34 +120,27 @@ services = '''
     "description": "Spinnaker UI",
     "link": "''' + cmdOut("minikube service spinnaker-deck --namespace spinnaker --url") + '''"
     },
-
-
-
     {
     "title": "Kubernetes Dashboard",
     "description": "Management UI",
     "link": "''' + cmdOut("minikube service kubernetes-dashboard --namespace kube-system --url") + '''"
     },
-
-        {
+    {
     "title": "Tectonic Console",
     "description": "Alternative management UI",
     "link": "''' + cmdOut("minikube service tectonic --namespace spinnaker --url") + '''"
     },
-
-
     {
     "title": "Jenkins",
     "description": "Automation Server",
     "link": "''' + cmdOut("minikube service spinnaker-jenkins --namespace spinnaker --url") + '''"
     },
-
-        {
+    {
     "title": "Cluster Performace",
     "description": "Performance analytics UI",
     "link": "''' + cmdOut("minikube service kubedash --namespace spinnaker --url") + '''"
     },
-      {
+    {
     "title": "Container Image Registry",
     "description": "Local image repository",
     "link": "''' + cmdOut("minikube service spinnaker-registryui --namespace spinnaker --url") + '''"
