@@ -42,7 +42,7 @@
 mkdir webpack
 chmod 0777 -R webpack
 
-docker run -v `pwd`/webpack:/opt/webpack quay.io/spinnaker/deck bash -c &quot;npm install; npm run build; mv -v build/webpack/* /opt/webpack&quot;
+docker run -v `pwd`/webpack:/opt/webpack quay.io/spinnaker/deck:v2.725.1 bash -c &quot;npm install; npm run build; mv -v build/webpack/* /opt/webpack&quot;
 
 
 ls -ll
