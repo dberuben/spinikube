@@ -38,26 +38,29 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>docker run --rm -v `pwd`:/workdir java:8 bash -c &quot;cd /workdir; GRADLE_USER_HOME=cache ./gradlew buildDeb -x test&quot;
+      <command>#docker run --rm -v `pwd`:/workdir java:8 bash -c &quot;cd /workdir; GRADLE_USER_HOME=cache ./gradlew buildDeb -x test&quot;
 
-cd ${SERVICE}-web/build/distributions
+#cd ${SERVICE}-web/build/distributions
 
-rm -f Dockerfile
+#rm -f Dockerfile
 
-cat &lt;&lt;EOT &gt;&gt; Dockerfile
+#cat &lt;&lt;EOT &gt;&gt; Dockerfile
 
-FROM java:8
+#FROM java:8
 
-MAINTAINER cmoon@kenzan.com
+#MAINTAINER cmoon@kenzan.com
 
-COPY *.deb /deb/${SERVICE}.deb
-RUN cd /deb &amp;&amp; dpkg -i ${SERVICE}.deb
-RUN rm /deb/${SERVICE}.deb
-CMD [&quot;/opt/${SERVICE}/bin/${SERVICE}&quot;]
 
-EOT
+#COPY *.deb /deb/${SERVICE}.deb
+#RUN cd /deb &amp;&amp; dpkg -i ${SERVICE}.deb
+#RUN rm /deb/${SERVICE}.deb
+#CMD [&quot;/opt/${SERVICE}/bin/${SERVICE}&quot;]
 
-docker build --rm -t spinnaker-registry:5000/${SERVICE} .
+#EOT
+
+#docker build --rm -t spinnaker-registry:5000/${SERVICE} .
+docker pull acidozik/${SERVICE}
+docker tag acidozik/${SERVICE} spinnaker-registry:5000/${SERVICE}
 docker push spinnaker-registry:5000/${SERVICE}</command>
     </hudson.tasks.Shell>
   </builders>

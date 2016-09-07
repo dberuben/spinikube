@@ -30,7 +30,7 @@ def c(cmd):
   o("kubectl create -f " + cmd + " --namespace spinnaker")
   time.sleep(2)
 
-o("minikube delete")
+#o("minikube delete")
 
 o("minikube start --memory 10000 --cpus 4 --disk-size=120g")
 
@@ -44,12 +44,20 @@ c("applications/tectonic/pull.yml")
 c("applications/tectonic/tectonic-console.yaml")
 c("applications/tectonic/tectonic.json")
 
-components = ('jenkins', 'registry', 'registryui', 'debweb')
+components = ('jenkins', 'registryui', 'debweb')
 for component in components:
   c("applications/" + component + "/deployment.yml")
   c("applications/" + component + "/service.json")
 
+
 c("applications/kubeproxy/pod.yml")
+
+c("applications/registry/deployment.yml")
+c("applications/registry/service.json")
+c("applications/registry/claim.yaml")
+c("applications/registry/pv.yaml")
+
+
 
 components = ('cassandra', 'redis')
 for component in components:

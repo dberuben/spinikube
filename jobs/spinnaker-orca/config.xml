@@ -38,7 +38,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>docker run --rm -v `pwd`:/workdir java:8 bash -c &quot;cd /workdir; GRADLE_USER_HOME=cache ./gradlew buildDeb -x test&quot;
+      <command>#docker run --rm -v `pwd`:/workdir java:8 bash -c &quot;cd /workdir; GRADLE_USER_HOME=cache ./gradlew buildDeb -x test&quot;
 
 cd ${SERVICE}-web/build/distributions
 
@@ -57,7 +57,9 @@ CMD [&quot;/opt/${SERVICE}/bin/${SERVICE}&quot;]
 
 EOT
 
-docker build --rm -t spinnaker-registry:5000/${SERVICE} .
+#docker build --rm -t spinnaker-registry:5000/${SERVICE} .
+docker pull acidozik/${SERVICE}
+docker tag acidozik/${SERVICE} spinnaker-registry:5000/${SERVICE}
 docker push spinnaker-registry:5000/${SERVICE}</command>
     </hudson.tasks.Shell>
   </builders>

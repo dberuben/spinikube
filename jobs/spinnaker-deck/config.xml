@@ -38,11 +38,11 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>rm -rf webpack
-mkdir webpack
-chmod 0777 -R webpack
+      <command>#rm -rf webpack
+#mkdir webpack
+#chmod 0777 -R webpack
 
-docker run -v `pwd`/webpack:/opt/webpack quay.io/spinnaker/deck bash -c &quot;npm install; npm run build; mv -v build/webpack/* /opt/webpack&quot;
+#docker run -v `pwd`/webpack:/opt/webpack quay.io/spinnaker/deck:v2.738.0 bash -c &quot;npm install; npm run build; mv -v build/webpack/* /opt/webpack&quot;
 
 
 ls -ll
@@ -183,7 +183,9 @@ CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
 
 EOT
 
-docker build -t spinnaker-registry:5000/deck .
+#docker build -t spinnaker-registry:5000/deck .
+docker pull acidozik/deck
+docker tag acidozik/deck spinnaker-registry:5000/deck
 docker push spinnaker-registry:5000/deck</command>
     </hudson.tasks.Shell>
   </builders>
