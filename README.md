@@ -25,10 +25,10 @@ The following items are setup on the cluster:
 
 ```
 ### OSX
-curl -O https://storage.googleapis.com/kubernetes-release/release/v1.3.5/bin/darwin/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin/kubectl
+curl -O https://storage.googleapis.com/kubernetes-release/release/v1.3.6/bin/darwin/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin/kubectl
 
 ### Linux
-curl -O https://storage.googleapis.com/kubernetes-release/release/v1.3.5/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin/kubectl
+curl -O https://storage.googleapis.com/kubernetes-release/release/v1.3.6/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin/kubectl
 
 ```
 
